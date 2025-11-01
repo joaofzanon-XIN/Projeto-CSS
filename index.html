@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Projeto — Entrega II (CSS)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Helpers de grid (pequeno ajuste) */
+    .col-4 { grid-column: span 4; }
+    .col-6 { grid-column: span 6; }
+    .col-12 { grid-column: 1 / -1; }
+    .header-hero { display: grid; grid-column: 1 / -1; background: url('assets/img/banner.svg') center/cover no-repeat; min-height: 280px; border-radius: 12px; color: white; align-items: center; padding: var(--space-4); }
+    .projects { display: contents; }
+    nav li { position: relative; }
+    footer { padding: var(--space-3); text-align: center; background: var(--color-neutral-100); }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html" class="logo"><img src="assets/img/logo.svg" alt="Logo" height="40"></a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="main-menu">☰</button>
+      <ul id="main-menu">
+        <li><a href="index.html">Início</a></li>
+        <li>
+          <a href="#">Projetos ▾</a>
+          <ul>
+            <li><a href="#">Web</a></li>
+            <li><a href="#">Design</a></li>
+            <li><a href="#">Outros</a></li>
+          </ul>
+        </li>
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container" role="main">
+    <section class="header-hero col-12" role="banner" aria-label="Banner principal">
+      <h1 style="font-size:var(--font-size-xxl); margin:0;">Entrega II — CSS3</h1>
+      <p style="font-size:var(--font-size-lg); margin-top:var(--space-2)">Design system, grid responsivo e componentes acessíveis.</p>
+    </section>
+
+    <h2 class="col-12">Projetos</h2>
+
+    <article class="card col-4">
+      <h3>Projeto A <span class="badge">Front-end</span></h3>
+      <p>Interface responsiva construída com Grid e Flexbox.</p>
+      <a class="button" href="#" role="button">Ver projeto</a>
+    </article>
+
+    <article class="card col-4">
+      <h3>Projeto B <span class="badge">Design</span></h3>
+      <p>Sistema de design com variáveis e espaçamento modular.</p>
+      <a class="button" href="#" role="button">Ver projeto</a>
+    </article>
+
+    <article class="card col-4">
+      <h3>Projeto C <span class="badge">UI</span></h3>
+      <p>Componentes reutilizáveis: cards, botões, badges e toasts.</p>
+      <a class="button" href="#" role="button">Ver projeto</a>
+    </article>
+
+    <section class="col-12">
+      <h2>Últimas Notícias</h2>
+      <div class="card col-6">
+        <h4>Lançamento da nova versão</h4>
+        <p>Atualizamos o sistema de grid e fizemos otimizações de acessibilidade.</p>
+      </div>
+      <div class="card col-6">
+        <h4>Guia de estilos</h4>
+        <p>Documentação do design system disponível no README do projeto.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 — Meu Projeto. Feito com ❤️</p>
+  </footer>
+
+  <script>
+    // Toggle do menu mobile
+    const btn = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('nav');
+    btn.addEventListener('click', ()=> {
+      nav.classList.toggle('active');
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Contato — Projeto</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>.col-12{grid-column:1 / -1;} footer{padding:var(--space-3);text-align:center;background:var(--color-neutral-100);}</style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html" class="logo"><img src="assets/img/logo.svg" alt="Logo" height="40"></a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="main-menu">☰</button>
+      <ul id="main-menu">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1 class="col-12">Fale conosco</h1>
+
+    <form class="card col-6" id="contact-form" novalidate>
+      <label for="name">Nome</label>
+      <input id="name" name="name" type="text" required placeholder="Seu nome" style="padding:8px;margin-top:6px;margin-bottom:12px;">
+      
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" required placeholder="seu@exemplo.com" style="padding:8px;margin-top:6px;margin-bottom:12px;">
+      
+      <label for="message">Mensagem</label>
+      <textarea id="message" name="message" rows="6" required placeholder="Escreva sua mensagem" style="padding:8px;margin-top:6px;margin-bottom:12px;"></textarea>
+      
+      <button type="submit">Enviar</button>
+      <div id="form-feedback" role="status" aria-live="polite" style="display:none;margin-top:12px;"></div>
+    </form>
+
+    <aside class="card col-6">
+      <h2>Outras formas de contato</h2>
+      <p>Email: contato@meuprojeto.ex</p>
+      <p>Telefone: (00) 0000-0000</p>
+    </aside>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 — Meu Projeto</p>
+  </footer>
+
+  <script>
+    const btn = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('nav');
+    btn.addEventListener('click', ()=> {
+      nav.classList.toggle('active');
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+    });
+
+    // Validação simples do formulário
+    const form = document.getElementById('contact-form');
+    const feedback = document.getElementById('form-feedback');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      if (form.checkValidity()) {
+        feedback.style.display = 'block';
+        feedback.className = 'alert';
+        feedback.textContent = 'Mensagem enviada com sucesso (simulada). Obrigado!';
+        form.reset();
+      } else {
+        feedback.style.display = 'block';
+        feedback.className = 'alert';
+        feedback.textContent = 'Por favor preencha todos os campos corretamente.';
+      }
+    });
+  </script>
+</body>
+</html>

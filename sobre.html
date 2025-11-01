@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Sobre — Projeto</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>.col-12{grid-column:1 / -1;} footer{padding:var(--space-3);text-align:center;background:var(--color-neutral-100);}</style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html" class="logo"><img src="assets/img/logo.svg" alt="Logo" height="40"></a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="main-menu">☰</button>
+      <ul id="main-menu">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="#">Projetos</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1 class="col-12">Sobre este projeto</h1>
+    <div class="card col-6">
+      <h2>Objetivo</h2>
+      <p>Demonstrar a aplicação de CSS3 para transformar HTML semântico em uma interface acessível e responsiva.</p>
+      <p class="mt-2">Sistema de design, paleta de cores, tipografia e espaçamento modular foram implementados.</p>
+    </div>
+    <aside class="card col-6" aria-labelledby="tech-title">
+      <h2 id="tech-title">Tecnologias</h2>
+      <ul>
+        <li>HTML5 semântico</li>
+        <li>CSS3 (Grid / Flexbox)</li>
+        <li>Design system com variáveis</li>
+      </ul>
+      <p class="mt-2"><span class="badge">Design</span> <span class="badge">Acessibilidade</span></p>
+    </aside>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 — Meu Projeto</p>
+  </footer>
+
+  <script>
+    const btn = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('nav');
+    btn.addEventListener('click', ()=> {
+      nav.classList.toggle('active');
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+    });
+  </script>
+</body>
+</html>
